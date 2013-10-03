@@ -4,8 +4,7 @@ META-EZYNQ
 This layer provides an unofficial support for Xilinx Zynq architecture 
 as well as evaluation boards.
 
-ezynq-u-boot ...partially duplicates functionality of Xilinx proprietary tool 
-that creates fsbl (first stage boot loader) and bootgen (later). 
+ezynq-u-boot creates bootable image without any extra proprietary tools required.
 It does not support secure boot functionality and loading the FPGA (PL) part 
 with a bitstream - it is planned to do under the control of the operating system - 
 if needed this feature can be implemented using u-boot...
