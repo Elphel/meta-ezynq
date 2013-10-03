@@ -4,8 +4,10 @@ LICENSE = "GPLv2+ & GPLv3"
 LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/COPYING;md5=1707d6db1d42237583f50183a5651ecb \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
-# Supposed source directory?
+# working directory
 S = "${WORKDIR}/git/${GITDIR_uboot_dir}"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 ##########################################################################################
 # Defining u-boot.inc parameters
