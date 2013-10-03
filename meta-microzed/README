@@ -1,0 +1,38 @@
+meta-microzed
+==========
+
+This README file contains information on using the meta-microzed BSP layer.
+
+The Microzed board is an evaluation board by Avnet/Digilent for the Zynq architecture:
+	http://www.microzed.org/
+
+Please refer to the meta-ezynq/README for details regarding patch submission,
+layer dependencies, build process, etc.
+
+Supported Boards/Machines
+=========================
+
+Avnet/Digilent ZedBoard (Zynq) - 'microzed'
+
+Reference files and documents
+=============================
+	http://www.microzed.org/
+
+SD Card Boot
+============
+
+Note: This boot flow generates a working boot.bin.
+
+Copy 'boot.bin' onto the SD Card.
+
+Might not work:
+#Copy the following to the SD card (ensure to rename the files where appropriate):
+#	Kernel: uImage
+#	RootFS: uramdisk.image.gz (core-image-minimal-<machine name>.ext2.gz.u-boot)
+#	DTB:    devicetree.dtb (uImage-<machine name>.dtb)
+
+Insert SD Card, connect UART to Terminal program and boot board (Ensure the
+board is configured for SD Boot).
+
+When in u-boot comand line to boot uImage type:
+u-boot> boot
