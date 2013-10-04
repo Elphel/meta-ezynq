@@ -18,12 +18,13 @@ layer dependencies, build process, etc.
 **Note:** This boot flow generates a bootable **boot.bin**.
 
 1. Copy **boot.bin** onto the SD Card.
- * (might not work) Copy the following to the SD card (ensure to rename the files where appropriate):
- *  **uImage** - kernel
- *  **uramdisk.image.gz** (core-image-minimal-<machine name>.ext2.gz.u-boot) - RootFS
- *  **devicetree.dtb** (uImage-<machine name>.dtb) - Device Tree Blob
+* (might not work) Copy the following to the SD card (ensure to rename the files where appropriate):
+    *  **uImage** - kernel
+    *  **uramdisk.image.gz** (core-image-minimal-<machine name>.ext2.gz.u-boot) - RootFS
+    *  **devicetree.dtb** (uImage-<machine name>.dtb) - Device Tree Blob
 * Insert SD Card, connect UART to Terminal program and boot board (Ensure the
 board is configured for SD Boot).
 * Once in u-boot command line - to boot *uImage* type:
 
         ezynq> boot
+
