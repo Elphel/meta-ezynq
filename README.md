@@ -73,13 +73,13 @@ board is configured for SD Boot).
 
 1. Configure the new board in *build/conf/local.conf*:
 
-        MACHINE ?= "<new-board>"
+        MACHINE ?= "{new-board}"
 
 * Create *conf/machine/<new-board>.conf* - use *microzed.conf* as a reference.
 
-* Edit *<new-board>.conf* - add:
+* Edit *{new-board}.conf* - add:
 
-        UBOOT_MACHINE = "<new-config-name>_config"
+        UBOOT_MACHINE = "{new-config-name}_config"
  
  where *{new-config-name}* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
 
