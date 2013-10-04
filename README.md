@@ -12,7 +12,7 @@ if needed this feature can be implemented using u-boot...
 Boards supported by this layer and sub-layers:
 
 * **Avnet MicroZed (Zynq)**
-***
+
 ## Dependencies
 This layer depends on:
 
@@ -21,7 +21,7 @@ This layer depends on:
 * URI: *git://github.com/MentorEmbedded/meta-sourcery.git*, layers: meta-sourcery (for external toolchains only)
 * URI: *git://github.com/Xilinx/u-boot-xlnx.git*, branch=master-next
 * URI: *git://git.code.sf.net/p/elphel/ezynq*
-***
+
 ## Sub-layers
 
 This repository contains the meta-ezynq layer as well as additional board
