@@ -6,7 +6,8 @@ as well as evaluation boards.
 *ezynq-u-boot* creates bootable image without any extra proprietary tools required.
 It does not support secure boot functionality and loading the FPGA (PL) part 
 with a bitstream - it is planned to do under the control of the operating system - 
-if needed this feature can be implemented using u-boot...
+if needed this feature can be implemented using u-boot.
+
 ***
 ## Supported boards/machines
 Boards supported by this layer:
@@ -31,7 +32,6 @@ initialized configure *bblayers.conf* by adding the *meta-ezynq* layer:
 	meta-ezynq \
 
 To build a specific target BSP configure the associated machine in *local.conf*:
-(See associated sub-layers for available machines and additional details)
 
 	MACHINE ?= "microzed"
 
@@ -46,7 +46,7 @@ Images generated:
 
 * **boot.bin** (fsbl is not required to boot)
 
-Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/*:
+Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}\_${PR}/git/u-boot-xlnx/*:
 
 * **u-boot.html** - configuration settings overview
 * **u-boot.map** - the bootloader's memory map
