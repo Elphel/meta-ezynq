@@ -71,6 +71,11 @@ directory 'tmp/deploy/images'.
 Images generated:
 	* boot.bin (fsbl is not required to boot)
 
+Extra Output at 'build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/':
+	* u-boot.html - configuration settings overview
+	* u-boot.map - the bootloader's memory map
+	* u-boot - ELF file
+
 Booting
 =======
 
