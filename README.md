@@ -81,7 +81,7 @@ board is configured for SD Boot).
 
         UBOOT_MACHINE = "<new-config-name>_config"
  
- where *<new-config-name>* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
+ where *{new-config-name}* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
 
 * 
 
@@ -89,15 +89,15 @@ board is configured for SD Boot).
 
  The command clones git repositories and add ezynq files to u-boot-xlnx.
 
- **Note:** Ezynq can be cloned and generate **boot.bin** apart from poky - please see Ezynq's documentation.
+ **Note:** Ezynq can be cloned and generate **boot.bin** apart from poky - please see [Ezynq's documentation](https://sourceforge.net/p/elphel/ezynq).
 
 * Edit ezynq files located at *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/*:
 
- * *boards.cfg* - add <new-config-name> if it's not in the list.
+ * *boards.cfg* - add {new-config-name} if it's not in the list.
 
- * create a new *include/configs/<new-config-name>.h* - use zynq_microzed.h as a reference)
+ * create a new *include/configs/{new-config-name}.h* - use zynq_microzed.h as a reference)
 
- * *<new-config-name>.h* needs to include the following files:
+ * *{new-config-name}.h* needs to include the following files:
 
             #include <configs/ezynq/ezynq_MT41K256M16RE125.h>  /* should be before zed_ezynq.h as it overwrites DDR3L with DDR3 */
             #include <configs/ezynq/ezynq_XC7Z010_1CLG400.h>
