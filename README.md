@@ -83,7 +83,7 @@ board is configured for SD Boot).
  
      where *{new-config-name}* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
 
-4. 
+4. Run
 
         bitbake ezynq-u-boot -c patch -f
 
@@ -107,8 +107,7 @@ board is configured for SD Boot).
 
     **WARNING:** After the step 5 **don't** run *bitbake ezynq-u-boot -c clean* - deletes everything in *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/*
 
-
-6. 
+6. Run
 
         bitbake ezynq-u-boot
 
