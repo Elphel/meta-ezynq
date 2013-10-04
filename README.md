@@ -45,7 +45,7 @@ well as any or all of the sub-layers of this repository, e.g.:
 To build a specific target BSP configure the associated machine in *local.conf*:
 (See associated sub-layers for available machines and additional details)
 
-	MACHINE ?= \"microzed\"
+	MACHINE ?= "microzed"
 
 Build U-Boot:
 
@@ -64,7 +64,8 @@ Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/*:
 * **u-boot.map** - the bootloader's memory map
 * **u-boot** - ELF file
 
-***
+
+******
 ## Booting
 
 Please see the associated README for the target machine, located in the
