@@ -68,3 +68,47 @@ board is configured for SD Boot).
 
         ezynq> boot
 
+
+## Develop (add new machine/board)
+
+1. Configure the new board in *build/conf/local.conf*:
+
+        MACHINE ?= "<new-board>"
+
+* Create *conf/machine/<new-board>.conf* - use *microzed.conf* as a reference.
+
+* Edit *<new-board>.conf* - add:
+
+        UBOOT_MACHINE = "<new-config-name>_config"
+ 
+ where *<new-config-name>* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
+
+* 
+
+        bitbake ezynq-u-boot -c patch -f
+
+ The command clones git repositories and add ezynq files to u-boot-xlnx.
+
+ **Note:** Ezynq can be cloned and generate **boot.bin** apart from poky - please see Ezynq's documentation.
+
+* Edit ezynq files located at *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/*:
+
+ * *boards.cfg* - add <new-config-name> if it's not in the list.
+
+ * create a new *include/configs/<new-config-name>.h* - use zynq_microzed.h as a reference)
+
+ * *<new-config-name>.h* needs to include the following files:
+
+            #include <configs/ezynq/ezynq_MT41K256M16RE125.h>  /* should be before zed_ezynq.h as it overwrites DDR3L with DDR3 */
+            #include <configs/ezynq/ezynq_XC7Z010_1CLG400.h>
+            #include <configs/ezynq/zed_ezynq.h>
+
+ * edit the included header files according to the new board configuration.
+
+ **WARNING:** After the step 5 **don't** run *bitbake ezynq-u-boot -c clean* -
+deletes everything in *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/*
+
+7. 
+
+        bitbake ezynq-u-boot
+
