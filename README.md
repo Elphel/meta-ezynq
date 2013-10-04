@@ -111,4 +111,4 @@ board is configured for SD Boot).
 
         bitbake ezynq-u-boot
 
-    **Note:** **boot.bin** size cannot exceed 192KB
+    **Note:** **u-boot.bin** (not the final boot.bin) size cannot exceed **192KB**
