@@ -107,6 +107,7 @@ board is configured for SD Boot).
 
     **WARNING:** After the step 5 **don't** run *bitbake ezynq-u-boot -c clean* - deletes everything in *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/*
 
+
 6. 
 
         bitbake ezynq-u-boot
