@@ -81,15 +81,15 @@ board is configured for SD Boot).
 
         UBOOT_MACHINE = "{new-config-name}_config"
  
- where *{new-config-name}* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
+     where *{new-config-name}* is from *boards.cfg* in [u-boot-xlnx](https://github.com/Xilinx/u-boot-xlnx) plus *"_config"*-ending
 
 4. 
 
         bitbake ezynq-u-boot -c patch -f
 
- The command clones git repositories and add ezynq files to u-boot-xlnx.
+    The command clones git repositories and add ezynq files to u-boot-xlnx.
 
- **Note:** Ezynq can be cloned and generate **boot.bin** apart from poky - please see [Ezynq's documentation](http://wiki.elphel.com/index.php?title=Ezynq).
+    **Note:** Ezynq can be cloned and generate **boot.bin** apart from poky - please see [Ezynq's documentation](http://wiki.elphel.com/index.php?title=Ezynq).
 
 5. Edit ezynq files located at *build/tmp/work/.../ezynq-u-boot/${PV}_${PR}/git/u-boot-xlnx/*:
 
