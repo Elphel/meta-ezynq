@@ -112,3 +112,9 @@ board is configured for SD Boot).
         bitbake ezynq-u-boot
 
     **Note:** **u-boot.bin** (not the final boot.bin) size cannot exceed **192KB**
+
+## Trademark notices
+
+Xilinx® and Zynq® are registered trademarks of Xilinx.
+
+Ezynq project is not endorsed by or affiliated with Xilinx Inc.
