@@ -37,7 +37,7 @@ SRC_URI_ezynq_branch= "master"
 SRC_URI_uboot= "git://github.com/Xilinx/u-boot-xlnx.git"
 SRC_URI_uboot_branch= "master-next"
 
-SRCREV_ezynq= "023675f31ec08fe9c6c1e93e9cdfb4417125fbeb"
+SRCREV_ezynq= "aaf833a34e87c30dc35897d82ec7223f13857e01"
 SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
 
 PATCH_NAME= "ezynq.patch" 
