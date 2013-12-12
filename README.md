@@ -37,7 +37,11 @@ To build a specific target BSP configure the associated machine in *local.conf*:
 
 Build U-Boot:
 
-	$ bitbake ezynq-u-boot
+	$ bitbake u-boot-ezynq
+or:
+	$ bitbake virtual/bootloader
+or:
+	$ bitbake u-boot
 
 Once complete the images for the target machine will be available in the output
 directory *tmp/deploy/images*.
@@ -64,10 +68,7 @@ Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}\_${PR}/git/u-boot-xlnx/*:
     *  **devicetree.dtb** (uImage-<machine name>.dtb) - Device Tree Blob
 * Insert SD Card, connect UART to Terminal program and boot board (Ensure the
 board is configured for SD Boot).
-* Once in u-boot command line - to boot *uImage* type:
-
-        ezynq> boot
-
+* To get to u-boot command line press any key withing 1 second.
 
 ## Develop (add new machine/board)
 
@@ -109,7 +110,7 @@ board is configured for SD Boot).
 
 6. Run
 
-        bitbake ezynq-u-boot
+        bitbake u-boot-ezynq
 
     **Note:** **u-boot.bin** (not the final boot.bin) size cannot exceed **192KB**
 

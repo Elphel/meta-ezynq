@@ -42,4 +42,4 @@ SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
 
 PATCH_NAME= "ezynq.patch" 
 
-include ezynq-u-boot-tasks.inc
+include u-boot-ezynq-tasks.inc
