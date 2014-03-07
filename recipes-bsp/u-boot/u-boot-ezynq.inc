@@ -1,7 +1,7 @@
 require recipes-bsp/u-boot/u-boot.inc
 
 LICENSE = "GPLv2+ & GPLv3"
-LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/COPYING;md5=1707d6db1d42237583f50183a5651ecb \
+LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=8872462bd018b07588642610ee65380e \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
 # working directory
@@ -15,11 +15,16 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 # UBOOT_MACHINE is defined in meta-<board>/conf/machine/<board>.conf 
 # (e.g., meta-microzed/conf/machine/microzed.conf: UBOOT_MACHINE= zynq_microzed_config) 
 
-UBOOT_SUFFIX = "bin"
-UBOOT_IMAGE = "boot-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
-UBOOT_BINARY = "boot.${UBOOT_SUFFIX}"
-UBOOT_SYMLINK = "boot-${MACHINE}.${UBOOT_SUFFIX}"
+UBOOT_SUFFIX = "img"
+UBOOT_IMAGE = "u-boot-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
+UBOOT_BINARY = "u-boot.${UBOOT_SUFFIX}"
+UBOOT_SYMLINK = "u-boot-${MACHINE}.${UBOOT_SUFFIX}"
 UBOOT_MAKE_TARGET = "all"
+
+SPL_SUFFIX = "bin"
+SPL_BINARY = "boot.${SPL_SUFFIX}"
+SPL_IMAGE = "boot-${MACHINE}-${PV}-${PR}.${SPL_SUFFIX}"
+SPL_SYMLINK = "boot-${MACHINE}.${SPL_SUFFIX}"
 
 ##########################################################################################
 # Variables used in the below overridden functions
@@ -38,7 +43,11 @@ SRC_URI_uboot= "git://github.com/Xilinx/u-boot-xlnx.git"
 SRC_URI_uboot_branch= "master-next"
 
 #SRCREV_ezynq= "83340698f9669977b7205aa67e6ca0dd23fb741f"
-SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
+SRCREV_ezynq= "89bb3ac2ed47ae48460e4dd82829d765b7922269"
+
+#SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
+#SRCREV_uboot= "6742f65365086ded52fa9726c9120de8a6ad541b"
+SRCREV_uboot= "54fee227ef141214141a226efd17ae0516deaf32"
 
 PATCH_NAME= "ezynq.patch" 
 

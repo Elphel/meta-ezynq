@@ -86,7 +86,7 @@ do_compile(){
   echo "Compiling..."
   cd ${GITDIR_uboot}
 
-  echo "Running ezynqcfg.py for the first time - u-boot.bin length is not known yet, generating arch/arm/cpu/armv7/zynq/ezynq.c"
+  echo "Running ezynqcfg.py for the first time - u-boot length is not known yet, generating arch/arm/cpu/armv7/zynq/ezynq.c"
 
   ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk --html u-boot.html -o boot_head.bin --html-mask 0x3ff --lowlevel arch/arm/cpu/armv7/zynq/ezynq.c
 
@@ -95,13 +95,19 @@ do_compile(){
   unset CPPFLAGS
   oe_runmake
 
-  echo "Running ezynqcfg.py for the second time - u-boot.bin length is known and will be used in the RBL header"
+  echo "Running ezynqcfg.py for the second time - u-boot length is known and will be used in the RBL header"
 
   echo "Other files are already created, repeating it here just to remind their paths"
 
-  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk -o boot_head.bin --uboot u-boot.bin --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/cpu/armv7/zynq/ezynq.c
+  if [ $(cat include/autoconf.mk | grep "CONFIG_SPL=y") ]; then
+    UBOOT_FILE="spl/u-boot-spl.bin"
+  else
+    UBOOT_FILE="u-boot.bin"
+  fi
 
-  cat boot_head.bin u-boot.bin > boot.bin
+  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk -o boot_head.bin --uboot $UBOOT_FILE --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/cpu/armv7/zynq/ezynq.c
+
+  cat boot_head.bin $UBOOT_FILE > boot.bin
 
   cd ${WORKDIR}
 }
