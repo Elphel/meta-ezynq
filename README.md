@@ -3,7 +3,7 @@
 This layer provides an unofficial support for Xilinx Zynq architecture 
 as well as evaluation boards.
 
-*ezynq-u-boot* creates bootable image without any extra proprietary tools required.
+*ezynq-u-boot* creates u-boot image (SPL + u-boot) without any extra proprietary tools required.
 It does not support secure boot functionality and loading the FPGA (PL) part 
 with a bitstream - it is planned to do under the control of the operating system - 
 if needed this feature can be implemented using u-boot.
@@ -13,6 +13,9 @@ if needed this feature can be implemented using u-boot.
 Boards supported by this layer:
 
 * **Avnet MicroZed (Zynq)**
+* **Zedboard (?)**
+* **ZC706 **
+* **Elphel393 (?)**
 
 ## Dependencies
 This layer depends on:
@@ -48,7 +51,7 @@ directory *tmp/deploy/images*.
 
 Images generated:
 
-* **boot.bin** (fsbl is not required to boot)
+* **boot.bin**+**u-boot.img** (fsbl is not required to boot)
 
 Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}\_${PR}/git/u-boot-xlnx/*:
 
@@ -61,7 +64,7 @@ Extra output at *build/tmp/work/.../ezynq-u-boot/${PV}\_${PR}/git/u-boot-xlnx/*:
 ### SD Card Boot
 **Note:** This boot flow generates a bootable **boot.bin**.
 
-1. Copy **boot.bin** onto the SD Card.
+1. Copy **boot.bin** and **u-boot.img**(if generated) onto the SD Card.
 * (might not work) Copy the following to the SD card (ensure to rename the files where appropriate):
     *  **uImage** - kernel
     *  **uramdisk.image.gz** (core-image-minimal-<machine name>.ext2.gz.u-boot) - RootFS
