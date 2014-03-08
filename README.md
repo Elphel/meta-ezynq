@@ -12,10 +12,10 @@ if needed this feature can be implemented using u-boot.
 ## Supported boards/machines
 Boards supported by this layer:
 
-* **Avnet MicroZed (Zynq)**
+* **MicroZed**
 * **Zedboard (?)**
-* **ZC706 **
-* **Elphel393 (?)**
+* **ZC706**
+* **Elphel393**
 
 ## Dependencies
 This layer depends on:
