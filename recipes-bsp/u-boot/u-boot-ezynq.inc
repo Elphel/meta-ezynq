@@ -43,11 +43,13 @@ SRC_URI_uboot= "git://github.com/Xilinx/u-boot-xlnx.git"
 SRC_URI_uboot_branch= "master-next"
 
 #SRCREV_ezynq= "83340698f9669977b7205aa67e6ca0dd23fb741f"
-SRCREV_ezynq= "89bb3ac2ed47ae48460e4dd82829d765b7922269"
+#SRCREV_ezynq= "89bb3ac2ed47ae48460e4dd82829d765b7922269"
+SRCREV_ezynq= "80f478a416f48fc5dc0485bcee220bba6132acd3"
 
 #SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
 #SRCREV_uboot= "6742f65365086ded52fa9726c9120de8a6ad541b"
-SRCREV_uboot= "54fee227ef141214141a226efd17ae0516deaf32"
+#SRCREV_uboot= "54fee227ef141214141a226efd17ae0516deaf32"
+SRCREV_uboot= "2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e"
 
 PATCH_NAME= "ezynq.patch" 
 
