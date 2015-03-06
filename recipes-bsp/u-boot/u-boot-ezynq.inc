@@ -36,7 +36,7 @@ GITDIR_ezynq_u-boot-tree= "${GITDIR_ezynq}/u-boot-tree"
 GITDIR_uboot_dir= "u-boot-xlnx"
 GITDIR_uboot= "${WORKDIR}/git/${GITDIR_uboot_dir}"
 
-SRC_URI_ezynq= "git://git.code.sf.net/p/elphel/ezynq"
+SRC_URI_ezynq= "git://github.com/Elphel/ezynq.git"
 SRC_URI_ezynq_branch= "master"
 
 SRC_URI_uboot= "git://github.com/Xilinx/u-boot-xlnx.git"
