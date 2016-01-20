@@ -1,7 +1,7 @@
 require recipes-bsp/u-boot/u-boot.inc
 
 LICENSE = "GPLv2+ & GPLv3"
-LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=8872462bd018b07588642610ee65380e \
+LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=587d8d939ae351bb11910921b1eafd42 \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
 # working directory
@@ -11,9 +11,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 ##########################################################################################
 # Defining u-boot.inc parameters
-
-# UBOOT_MACHINE is defined in meta-<board>/conf/machine/<board>.conf 
-# (e.g., meta-microzed/conf/machine/microzed.conf: UBOOT_MACHINE= zynq_microzed_config) 
 
 UBOOT_SUFFIX = "img"
 UBOOT_IMAGE = "u-boot-${MACHINE}-${PV}-${PR}.${UBOOT_SUFFIX}"
@@ -33,23 +30,25 @@ GITDIR_ezynq_label = "ezynq"
 GITDIR_ezynq= "${WORKDIR}/${GITDIR_ezynq_dir}"
 GITDIR_ezynq_u-boot-tree= "${GITDIR_ezynq}/u-boot-tree"
 
-GITDIR_uboot_dir= "u-boot-xlnx"
+GITDIR_uboot_dir= "u-boot"
 GITDIR_uboot= "${WORKDIR}/git/${GITDIR_uboot_dir}"
 
 SRC_URI_ezynq= "git://github.com/Elphel/ezynq.git"
 SRC_URI_ezynq_branch= "master"
 
-SRC_URI_uboot= "git://github.com/Xilinx/u-boot-xlnx.git"
-SRC_URI_uboot_branch= "master-next"
+SRC_URI_uboot= "git://git.denx.de/u-boot.git"
+SRC_URI_uboot_branch= "master"
 
 #SRCREV_ezynq= "83340698f9669977b7205aa67e6ca0dd23fb741f"
 #SRCREV_ezynq= "89bb3ac2ed47ae48460e4dd82829d765b7922269"
-SRCREV_ezynq= "80f478a416f48fc5dc0485bcee220bba6132acd3"
+#SRCREV_ezynq= "80f478a416f48fc5dc0485bcee220bba6132acd3"
+SRCREV_ezynq= ""
 
 #SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
 #SRCREV_uboot= "6742f65365086ded52fa9726c9120de8a6ad541b"
 #SRCREV_uboot= "54fee227ef141214141a226efd17ae0516deaf32"
-SRCREV_uboot= "2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e"
+#SRCREV_uboot= "2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e"
+SRCREV_uboot= "fa85e826c16b9ce1ad302a57e9c4b24db0d8b930"
 
 PATCH_NAME= "ezynq.patch" 
 

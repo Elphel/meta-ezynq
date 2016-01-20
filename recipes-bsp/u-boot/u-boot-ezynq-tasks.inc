@@ -20,7 +20,7 @@ do_fetch(){
     echo "Skipped: ezynq is already cloned."
   fi
 
-  echo "Fetching u-boot-xlnx..."
+  echo "Fetching ${GITDIR_uboot_dir}..."
   if [ ! -d "${GITDIR_uboot}/.git" ]; then
     # not really needed - for consistency
     if [ -d ${GITDIR_uboot} ]; then
@@ -30,9 +30,9 @@ do_fetch(){
     cd ${GITDIR_uboot}
     git checkout ${SRCREV_uboot}
     cd ${WORKDIR}
-    echo "Cloning u-boot-xlnx done."
+    echo "Cloning ${GITDIR_uboot_dir} done."
   else
-    echo "Skipped: u-boot-xlnx is already cloned."
+    echo "Skipped: ${GITDIR_uboot_dir} is already cloned."
   fi
 }
 
@@ -86,9 +86,9 @@ do_compile(){
   echo "Compiling..."
   cd ${GITDIR_uboot}
 
-  echo "Running ezynqcfg.py for the first time - u-boot length is not known yet, generating arch/arm/cpu/armv7/zynq/ezynq.c"
+  echo "Running ezynqcfg.py for the first time - u-boot length is not known yet, generating arch/arm/mach-zynq/ezynq.c"
 
-  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk --html u-boot.html -o boot_head.bin --html-mask 0x3ff --lowlevel arch/arm/cpu/armv7/zynq/ezynq.c
+  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk --html u-boot.html -o boot_head.bin --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
 
   unset LDFLAGS
   unset CFLAGS
@@ -99,13 +99,13 @@ do_compile(){
 
   echo "Other files are already created, repeating it here just to remind their paths"
 
-  if [ $(cat include/autoconf.mk | grep "CONFIG_SPL=y") ]; then
+  if [ $(cat .config | grep "CONFIG_SPL=y") ]; then
     UBOOT_FILE="spl/u-boot-spl.bin"
   else
     UBOOT_FILE="u-boot.bin"
   fi
 
-  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk -o boot_head.bin --uboot $UBOOT_FILE --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/cpu/armv7/zynq/ezynq.c
+  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk -o boot_head.bin --uboot $UBOOT_FILE --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
 
   cat boot_head.bin $UBOOT_FILE > boot.bin
 
