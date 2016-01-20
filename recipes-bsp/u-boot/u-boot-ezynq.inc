@@ -34,7 +34,7 @@ GITDIR_uboot_dir= "u-boot"
 GITDIR_uboot= "${WORKDIR}/git/${GITDIR_uboot_dir}"
 
 SRC_URI_ezynq= "git://github.com/Elphel/ezynq.git"
-SRC_URI_ezynq_branch= "master"
+SRC_URI_ezynq_branch= "jethro"
 
 SRC_URI_uboot= "git://git.denx.de/u-boot.git"
 SRC_URI_uboot_branch= "master"
