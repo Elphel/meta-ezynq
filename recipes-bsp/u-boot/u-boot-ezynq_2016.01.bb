@@ -12,3 +12,5 @@ include u-boot-ezynq.inc
 PROVIDES = "u-boot virtual/bootloader"
 
 inherit zynq7-platform-paths
+
+#UBOOT_CONFIG="dtb"

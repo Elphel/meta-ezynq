@@ -99,7 +99,9 @@ do_compile(){
 
   echo "Other files are already created, repeating it here just to remind their paths"
 
-  if [ $(cat .config | grep "CONFIG_SPL=y") ]; then
+  if [ $(cat .config | grep "CONFIG_SPL_OF_CONTROL=y") ]; then
+    UBOOT_FILE="spl/u-boot-spl-dtb.bin"
+  elif [ $(cat .config | grep "CONFIG_SPL=y") ]; then
     UBOOT_FILE="spl/u-boot-spl.bin"
   else
     UBOOT_FILE="u-boot.bin"
@@ -113,3 +115,16 @@ do_compile(){
 }
 
 ##########################################################################################
+# do_deploy_append
+do_deploy_append() {
+    if [ $(cat ${S}/.config | grep "CONFIG_OF_CONTROL=y") ]; then
+        rm -f ${DEPLOYDIR}/${UBOOT_BINARY}
+        install ${S}/u-boot-dtb.img ${DEPLOYDIR}/${UBOOT_IMAGE}
+        cd ${DEPLOYDIR}
+        rm -f ${UBOOT_BINARY} ${UBOOT_SYMLINK} u-boot-dtb.img
+        ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
+        ln -sf ${UBOOT_IMAGE} u-boot-dtb.img
+    fi
+}
+
+
