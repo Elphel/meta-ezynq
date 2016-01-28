@@ -3,10 +3,14 @@ HOMEPAGE = "http://elphel.com;http://blog.elphel.com"
 SECTION = "bootloaders"
 
 #Project Version
-PV = "v2014.03"
+PV = "v2016.01"
 #Project Revision
 PR = "r0"
 
 include u-boot-ezynq.inc
 
 PROVIDES = "u-boot virtual/bootloader"
+
+inherit zynq7-platform-paths
+
+#UBOOT_CONFIG="dtb"
