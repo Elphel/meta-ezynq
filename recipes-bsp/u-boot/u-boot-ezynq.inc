@@ -42,7 +42,7 @@ SRC_URI_uboot_branch= "master"
 #SRCREV_ezynq= "83340698f9669977b7205aa67e6ca0dd23fb741f"
 #SRCREV_ezynq= "89bb3ac2ed47ae48460e4dd82829d765b7922269"
 #SRCREV_ezynq= "80f478a416f48fc5dc0485bcee220bba6132acd3"
-SRCREV_ezynq= ""
+SRCREV_ezynq= "5b0d9cfb8c89bf2e6417f8a519863ed1aeaf27ba"
 
 #SRCREV_uboot= "bbd91fc9ae290c31dc52fd8322f43f67ddd39247"
 #SRCREV_uboot= "6742f65365086ded52fa9726c9120de8a6ad541b"
