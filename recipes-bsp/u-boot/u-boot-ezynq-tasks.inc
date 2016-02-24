@@ -124,6 +124,18 @@ do_deploy_append() {
         rm -f ${UBOOT_BINARY} ${UBOOT_SYMLINK} u-boot-dtb.img
         ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
         ln -sf ${UBOOT_IMAGE} u-boot-dtb.img
+        if [ ! -d ${PRODUCTION_DIR} ]; then
+            mkdir ${PRODUCTION_DIR}
+        fi
+        if [ -f ${PRODUCTION_DIR}/${PRODUCTION_BOOT} ]; then
+            rm ${PRODUCTION_DIR}/${PRODUCTION_BOOT}
+        fi
+        cp ${SPL_IMAGE} ${PRODUCTION_DIR}/${PRODUCTION_BOOT}
+        
+        if [ -f ${PRODUCTION_DIR}/${PRODUCTION_UBOOT} ]; then
+            rm ${PRODUCTION_DIR}/${PRODUCTION_UBOOT}
+        fi
+        cp ${UBOOT_IMAGE} ${PRODUCTION_DIR}/${PRODUCTION_UBOOT}
     fi
 }
 
