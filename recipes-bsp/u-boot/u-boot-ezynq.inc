@@ -1,7 +1,7 @@
 require recipes-bsp/u-boot/u-boot.inc
 
 LICENSE = "GPLv2+ & GPLv3"
-LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=60a44053b03fba9b742389c93f611eda \
+LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=587d8d939ae351bb11910921b1eafd42 \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
 # working directory
