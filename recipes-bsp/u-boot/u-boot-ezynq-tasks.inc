@@ -118,24 +118,25 @@ do_compile(){
 # do_deploy_append
 do_deploy_append() {
     if [ $(cat ${S}/.config | grep "CONFIG_OF_CONTROL=y") ]; then
-        rm -f ${DEPLOYDIR}/${UBOOT_BINARY}
-        install ${S}/u-boot-dtb.img ${DEPLOYDIR}/${UBOOT_IMAGE}
-        cd ${DEPLOYDIR}
-        rm -f ${UBOOT_BINARY} ${UBOOT_SYMLINK} u-boot-dtb.img
-        ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
-        ln -sf ${UBOOT_IMAGE} u-boot-dtb.img
-        if [ ! -d ${PRODUCTION_DIR} ]; then
-            mkdir ${PRODUCTION_DIR}
-        fi
-        if [ -f ${PRODUCTION_DIR}/${PRODUCTION_BOOT} ]; then
-            rm ${PRODUCTION_DIR}/${PRODUCTION_BOOT}
-        fi
-        cp ${SPL_IMAGE} ${PRODUCTION_DIR}/${PRODUCTION_BOOT}
-        
-        if [ -f ${PRODUCTION_DIR}/${PRODUCTION_UBOOT} ]; then
-            rm ${PRODUCTION_DIR}/${PRODUCTION_UBOOT}
-        fi
-        cp ${UBOOT_IMAGE} ${PRODUCTION_DIR}/${PRODUCTION_UBOOT}
+	rm -f ${DEPLOYDIR}/${UBOOT_BINARY}
+	install ${S}/u-boot-dtb.img ${DEPLOYDIR}/${UBOOT_IMAGE}
+	cd ${DEPLOYDIR}
+	rm -f ${UBOOT_BINARY} ${UBOOT_SYMLINK} u-boot-dtb.img
+	ln -sf ${UBOOT_IMAGE} ${UBOOT_SYMLINK}
+	ln -sf ${UBOOT_IMAGE} u-boot-dtb.img
+	for RLOC in ${PRODUCTION_ROOT_LOCATION}; do
+		if [ ! -d ${RLOC} ]; then
+			mkdir ${RLOC}
+		fi
+		if [ -f ${RLOC}/${PRODUCTION_BOOT} ]; then
+			rm ${RLOC}/${PRODUCTION_BOOT}
+		fi
+		cp ${SPL_IMAGE} ${RLOC}/${PRODUCTION_BOOT}
+		if [ -f ${RLOC}/${PRODUCTION_UBOOT} ]; then
+			rm ${RLOC}/${PRODUCTION_UBOOT}
+		fi
+		cp ${UBOOT_IMAGE} ${RLOC}/${PRODUCTION_UBOOT}
+	done
     fi
 }
 
