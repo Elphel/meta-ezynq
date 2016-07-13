@@ -111,6 +111,8 @@ do_compile(){
 
   cat boot_head.bin $UBOOT_FILE > boot.bin
 
+  oe_runmake env
+  
   cd ${WORKDIR}
 }
 
