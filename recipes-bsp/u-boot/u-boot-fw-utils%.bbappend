@@ -9,6 +9,10 @@ do_compile_append() {
     cd ${WORKDIR}
 }
 
+FILES_${PN} += "\
+           /sbin/* \
+          "
+
 do_install_append(){
     install -d ${D}${base_sbindir}
     install -d ${D}${sysconfdir}
