@@ -3,7 +3,7 @@ HOMEPAGE = "http://elphel.com;http://blog.elphel.com"
 SECTION = "bootloaders"
 
 #Project Version
-PV = "v2016.01"
+PV = "v2016.05"
 #Project Revision
 PR = "r0"
 
