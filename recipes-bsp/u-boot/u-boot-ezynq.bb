@@ -9,7 +9,7 @@ PR = "r0"
 
 include u-boot-ezynq.inc
 
-PROVIDES = "u-boot virtual/bootloader"
+PROVIDES = "u-boot virtual/bootloader u-boot-fw-utils"
 
 inherit zynq7-platform-paths
 
