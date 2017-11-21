@@ -1,13 +1,18 @@
 require recipes-bsp/u-boot/u-boot.inc
 
+DEPENDS = "bc-native dtc-native"
+
 LICENSE = "GPLv2+ & GPLv3"
 LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=f0b2103a037ad81f10894cc74e3b6212 \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
 # working directory
 S = "${WORKDIR}/git/${GITDIR_uboot_dir}"
+B = "${S}"
 
 PACKAGE_ARCH = "${MACHINE_ARCH}"
+PACKAGES = "u-boot-ezynq"
+FILES_${PN} = " /boot/*"
 
 ##########################################################################################
 # Defining u-boot.inc parameters
@@ -57,6 +62,6 @@ SRCREV_uboot= "aeaec0e682f45b9e0c62c522fafea353931f73ed"
 #for u-boot-xlnx
 #SRCREV_uboot= "01b1fea9b13b799a16efd743587dc861719e5212"
 
-PATCH_NAME= "ezynq.patch" 
+PATCH_NAME= "ezynq.patch"
 
 include u-boot-ezynq-tasks.inc

@@ -1,3 +1,12 @@
+
+# when updating from Jethro to Rocko 'cleandirs' is set for S
+# So it happily nukes a freshly cloned u-boot repo, so:
+# unsetting cleandirs flag:
+
+python(){
+  d.setVarFlag('do_unpack','cleandirs', '')
+}
+
 ##########################################################################################
 # SRC_URI - Couldn't find how to deal with multiple git repos:
 # 1. Tried and it didn't work: http://lists.linuxtogo.org/pipermail/openembedded-core/2011-October/010926.html
@@ -34,6 +43,7 @@ do_fetch(){
   else
     echo "Skipped: ${GITDIR_uboot_dir} is already cloned."
   fi
+
 }
 
 ##########################################################################################
@@ -44,7 +54,7 @@ do_unpack(){
 
   if [ ! -h "${GITDIR_uboot}/${GITDIR_ezynq_label}" ]; then
     ln -s ${GITDIR_ezynq} "${GITDIR_uboot}/${GITDIR_ezynq_label}"
-  fi  
+  fi
 
   if [ ! -f "${GITDIR_ezynq}/${PATCH_NAME}" ]; then
     cd ${GITDIR_ezynq}
@@ -112,7 +122,7 @@ do_compile(){
   cat boot_head.bin $UBOOT_FILE > boot.bin
 
   oe_runmake env
-  
+
   cd ${WORKDIR}
 }
 
