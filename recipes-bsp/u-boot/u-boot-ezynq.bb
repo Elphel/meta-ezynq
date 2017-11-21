@@ -11,6 +11,9 @@ include u-boot-ezynq.inc
 
 PROVIDES = "u-boot virtual/bootloader"
 
-inherit zynq7-platform-paths
+# Define the path to the xilinx platform init code/headers
+PLATFORM_INIT_DIR ?= "/usr/src/xilinx-platform-init"
+
+PLATFORM_INIT_STAGE_DIR = "${STAGING_DIR_HOST}${PLATFORM_INIT_DIR}"
 
 #UBOOT_CONFIG="dtb"
