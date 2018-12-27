@@ -1,6 +1,8 @@
-require recipes-bsp/u-boot/u-boot.inc
+require u-boot.inc
+DEPENDS += "bc-native dtc-native"
 
-DEPENDS = "bc-native dtc-native"
+#require recipes-bsp/u-boot/u-boot.inc
+#DEPENDS += " bc-native dtc-native"
 
 LICENSE = "GPLv2+ & GPLv3"
 LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=f0b2103a037ad81f10894cc74e3b6212 \
@@ -59,6 +61,8 @@ SRCREV_ezynq= ""
 #SRCREV_uboot= "2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e"
 #SRCREV_uboot= "fa85e826c16b9ce1ad302a57e9c4b24db0d8b930"
 SRCREV_uboot= "aeaec0e682f45b9e0c62c522fafea353931f73ed"
+#SRCREV_uboot= "8c5d4fd0ec222701598a27b26ab7265d4cee45a3"
+#SRCREV_uboot= "0157013f4a4945bbdb70bb4d98d680e0845fd784"
 #for u-boot-xlnx
 #SRCREV_uboot= "01b1fea9b13b799a16efd743587dc861719e5212"
 
