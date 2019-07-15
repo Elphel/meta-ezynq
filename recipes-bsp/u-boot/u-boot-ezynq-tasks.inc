@@ -96,9 +96,12 @@ do_compile(){
   echo "Compiling..."
   cd ${GITDIR_uboot}
 
+  #AUTOCONF_FILE="include/autoconf.mk"
+  AUTOCONF_FILE="include/config/auto.conf"
+
   echo "Running ezynqcfg.py for the first time - u-boot length is not known yet, generating arch/arm/mach-zynq/ezynq.c"
 
-  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk --html u-boot.html -o boot_head.bin --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
+  ${GITDIR_ezynq_label}/ezynqcfg.py -c $AUTOCONF_FILE --html u-boot.html -o boot_head.bin --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
 
   unset LDFLAGS
   unset CFLAGS
@@ -117,7 +120,7 @@ do_compile(){
     UBOOT_FILE="u-boot.bin"
   fi
 
-  ${GITDIR_ezynq_label}/ezynqcfg.py -c include/autoconf.mk -o boot_head.bin --uboot $UBOOT_FILE --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
+  ${GITDIR_ezynq_label}/ezynqcfg.py -c $AUTOCONF_FILE -o boot_head.bin --uboot $UBOOT_FILE --html u-boot.html --html-mask 0x3ff --lowlevel arch/arm/mach-zynq/ezynq.c
 
   cat boot_head.bin $UBOOT_FILE > boot.bin
 

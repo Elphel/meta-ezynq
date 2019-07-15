@@ -1,9 +1,9 @@
 require recipes-bsp/u-boot/u-boot.inc
 
-DEPENDS = "bc-native dtc-native"
+DEPENDS = "bc-native dtc-native bison-native"
 
 LICENSE = "GPLv2+ & GPLv3"
-LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=f0b2103a037ad81f10894cc74e3b6212 \
+LIC_FILES_CHKSUM = "file://${GITDIR_uboot}/README;md5=030fd86c891b64ce88b7aa3cff0fbd44 \
 		    file://${GITDIR_ezynq}/LICENSE;md5=891e49b3c2a8c133ffe7985e54245aff"
 
 # working directory
@@ -41,7 +41,8 @@ GITDIR_uboot= "${WORKDIR}/git/${GITDIR_uboot_dir}"
 ELPHELGITHOST ??= "git.elphel.com"
 
 SRC_URI_ezynq= "https://${ELPHELGITHOST}/Elphel/ezynq.git"
-SRC_URI_ezynq_branch= "master"
+#SRC_URI_ezynq_branch= "master"
+SRC_URI_ezynq_branch= "v2019.07"
 
 SRC_URI_uboot= "git://git.denx.de/u-boot.git"
 #for u-boot-xlnx
@@ -58,7 +59,9 @@ SRCREV_ezynq= ""
 #SRCREV_uboot= "54fee227ef141214141a226efd17ae0516deaf32"
 #SRCREV_uboot= "2a0536fa48db1fc5332e3cd33b846d0da0c8bc1e"
 #SRCREV_uboot= "fa85e826c16b9ce1ad302a57e9c4b24db0d8b930"
-SRCREV_uboot= "aeaec0e682f45b9e0c62c522fafea353931f73ed"
+#SRCREV_uboot= "aeaec0e682f45b9e0c62c522fafea353931f73ed"
+SRCREV_uboot= "e5aee22e4be75e75a854ab64503fc80598bc2004"
+
 #for u-boot-xlnx
 #SRCREV_uboot= "01b1fea9b13b799a16efd743587dc861719e5212"
 

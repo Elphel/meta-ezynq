@@ -5,7 +5,7 @@ HOMEPAGE = "https://elphel.com;https://blog.elphel.com"
 SECTION = "bootloaders"
 
 # Project Version
-PV = "v2016.05"
+PV = "v2019.07"
 
 # Project Revision
 PR = "r0"
